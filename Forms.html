@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html ang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+<style>
+    body{
+          color:aliceblue;
+          background: rgb(2,0,36);
+          background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+          font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+    fieldset{
+              width: 500px;
+              border: 5px solid black;
+              border-radius: 25px; 
+            }
+   input:required{
+                    border: 2px solid red;
+                 }
+   input:optional{
+                    border: 2px dashed green;
+                 } 
+   input[readonly] {
+                     background-color: rgb(205,241,0);
+                     color: black;
+                     font-weight: 900;
+                   }
+   select{
+             background-color: purple;
+             border-radius: 10px;
+             font-size: 20px;
+             width: 200px;
+             color:bisque;
+             cursor: pointer;
+        }               
+    input[type="radio"]:checked{
+            height: 30px;
+            width: 30px;
+        }
+    input[type="radio"]:checked + label{
+            color: red;
+            font-size: 20px;
+        }
+    p{
+        display: none;
+     }
+   input:hover + p{
+    display: inline;
+    color:black;
+    background-color: greenyellow;
+    font-weight: 400;
+   }
+   input:focus{
+    background-color: rgb(235, 10, 10);
+    color: bisque;
+    font-weight: 600;
+   }
+   img{
+    display:none;
+   }
+   input[type="Email"]:focus:valid ~ img.valid{
+    display: inline;
+    height:18px;
+    width: 18px;
+   }
+   input[type="Email"]:focus:invalid ~ img.invalid{
+    display: inline;
+    height:18px;
+    width: 18px;
+   }
+   input[name="age"]:focus:in-range:valid ~ img.valid{
+    display:inline;
+    width:18px;
+    height: 18px;
+   }
+   input[name="age"]:focus:out-of-range:invalid ~ img.invalid{
+    display:inline;
+    width:18px;
+    height: 18px;
+   }
+   input[type="submit"]{
+    border: 2px solid rgb(77,255,0);
+    border-radius:25px;
+   }
+   input[type="reset"]{
+    border: 2px solid rgb(77,255,0);
+    border-radius:25px;
+   }
+</style>
+</head>
+<body>
+<h1>Couse Registration Form</h1>
+<form action="">
+    <fieldset>
+        <legend>Personal Details</legend>
+    <table>
+        <tr><td><label>First Name</label></td><td><input type="text" name ="FN"
+        placeholder="EX: SARU" size="15" maxlength="10" required/><p>Enter your Name</p><br /></td></tr>
+       <tr><td><label>Surname</label></td><td><input type="text" name="LN"
+       placeholder="EX: T" size="15" optional/><p>Enter your Secondary Name</p><br /></td></tr>
+     <tr><td><label>Mobile number</label></td><td><input type="tel" name="mob"
+     placeholder="EX: 6745189050" size="15" required/><p>Enter your Mobile Number</p><br /></td></tr>
+    <tr><td><label>Email</label></td>
+        <td>
+            <input type="email" name="mail" 
+             placeholder="EX: abcd@gmail.com" size="15" required/>
+            <p>Enter your Email</p><img class="valid" src="./ok.jpg"/>
+            <img class="invalid" src="./no.jpg"/><br /></td></tr>
+    <tr><td><label>Password</label></td><td><input type="password" name="pwd"
+    placeholder="password" size="15" required/><p>Include atleast provide<br />1 Uppercase<br />1 Lowercase<br />1 Special characters<br /></p><br /></td></tr>
+    <tr><td><label>Conform Password</label></td><td><input type="password" name="cpwd"
+    placeholder="Conform password" size="15" required><img class="valid" src="./ok.jpg"/><img class="invalid" src="./no.jpg"/><br /></td></tr>
+    <tr><td><label>DOB</label></td>/<td><input type="date" name="dob" required><br /></td></tr>
+    <tr><td><label>AGE</label></td> <td><input type="number" name="age" required min="18" max="100"/><img class="valid" src="/ok.jpg"/><img class="invalid" src="/no.jpg"/><br /></td></tr>
+    <tr><td><label>Gender</label></td><td><input type="radio" name="gender"
+    value="M"/><label>Male</label> <input type="radio" name="gender" value="F"/><label>Female</label> <input type="radio" name="gender"
+    value="C"/><label>Custom</label><br /></td></tr>
+    <tr> <td>Select Country</td>
+    <td>
+        <select name="County">
+            <option class="opt" value="INDIA">INDIA</option>
+            <option class="opt" value="USA">USA</option>
+            <option class="opt" value="England">England</option>
+            <option class="opt" value="Australia">Australia</option>
+            <option class="opt" value="Japan">Japan</option>
+            <option class="opt" value="UK">UK</option>
+        </select><br /></td></tr>
+    <tr><td><label>Upload Image</label></td><td><input type="file" name="img"><br /></td></tr>
+    <tr><td><input type="reset"/></td></tr>
+</table>
+</fieldset>
+<fieldset>
+    <legend>Course Details</legend>
+    <legend>Select Course</legend>
+    <td><Select name="Course">
+        <option class="opt" value="PFS">Python Full Stack</option>
+        <option class="opt" value="JFS">Java Full Stack</option>
+        <option class="opt" value="CJ">Core Java</option>
+        <option class="opt" value="PDS">Python For DataScience</option>
+    </Select><br /></td>
+    <label>Delivery Mode</label>
+    <input type="radio" name="mode" value="ON"/><label for="">ONLINE</label>
+    <input type="radio" name="mode" value="OFF"/><label for="">OFFLINE</label><br /><br />
+    <label>INSITITUTE NAME:</label>
+    <input type="text" value="TAP ACADEMY" readonly/><br />
+    <label>Comments</label> <br />
+    <textarea rows="4" cols="40" placeholder="Write your Comments Here"></textarea>
+</fieldset>
+<input type="submit" name="" id=""/>
+</form>
+</body>
+</html>
